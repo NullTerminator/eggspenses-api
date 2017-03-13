@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311203012) do
+ActiveRecord::Schema.define(version: 20170313134332) do
 
   create_table "assets", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170311203012) do
     t.integer  "expensable_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.date     "start_date"
+    t.date     "end_date"
     t.index ["expensable_type", "expensable_id"], name: "index_expenses_on_expensable_type_and_expensable_id"
   end
 

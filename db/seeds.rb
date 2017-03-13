@@ -31,11 +31,15 @@ unless dz_duck = SaleItem.find_by(name: 'Dozen Duck Eggs')
 end
 
 p 'POPULATING EXPENSES'
+feed_pound_price = 25.7 / 50
 unless Expense.exists?(name: 'Chicken Feed')
-  Expense.create!(name: 'Chicken Feed', period: 'daily', price: (25.7 / 50) * 0.312, expensable: hens)
+  Expense.create!(name: 'Chicken Feed', period: 'daily', price: feed_pound_price * 0.24, expensable: hens)
+end
+unless Expense.exists?(name: 'Chicken Feed (Extra Winter)')
+  Expense.create!(name: 'Chicken Feed', period: 'daily', price: feed_pound_price * 0.072, expensable: hens, start_date: Date.parse('2017-02-25'), end_date: Date.parse('2017-04-14'))
 end
 unless Expense.exists?(name: 'Duck Feed')
-  Expense.create!(name: 'Duck Feed', period: 'daily', price: (25.7 / 50) * 0.4, expensable: ducks)
+  Expense.create!(name: 'Duck Feed', period: 'daily', price: feed_pound_price * 0.4, expensable: ducks)
 end
 unless Expense.exists?(name: 'Chicken Egg Cartons')
   Expense.create!(name: 'Chicken Egg Cartons', price: 0.25, expensable: dz_chick)

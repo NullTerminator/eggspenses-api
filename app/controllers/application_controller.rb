@@ -20,7 +20,7 @@ class ApplicationController < ActionController::API
   def update
     resource = get_resource
     resource.update!(resource_params)
-    json_response resource, :updated
+    json_response resource, :ok
   end
 
   def destroy

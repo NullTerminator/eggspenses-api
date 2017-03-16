@@ -7,5 +7,9 @@ FactoryGirl.define do
     name { FactoryGirl.generate :product_name }
 
     asset_id nil
+
+    factory :product_with_asset do
+      asset
+    end
   end
 end

@@ -5,7 +5,11 @@ class ApplicationController < ActionController::API
   before_action :set_resource, only: [:show, :update, :destroy]
 
   def index
-    json_response resource_class.all
+    resources = resource_class.all
+    filtered_params.each do |k, v|
+      resources = resources.public_send(k, v) if v.present?
+    end
+    json_response resources
   end
 
   def create
@@ -49,5 +53,13 @@ class ApplicationController < ActionController::API
 
   def resource_params
     self.send("#{resource_name}_params")
+  end
+
+  def filter_params
+    []
+  end
+
+  def filtered_params
+    params.slice(*filter_params)
   end
 end

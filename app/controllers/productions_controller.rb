@@ -6,6 +6,6 @@ class ProductionsController < ApplicationController
   end
 
   def filter_params
-    [:from_date, :to_date]
+    [:for_product_id, :from_date, :to_date]
   end
 end

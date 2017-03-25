@@ -6,7 +6,7 @@ FactoryGirl.define do
   factory :expense do
     name { FactoryGirl.generate :expense_name }
     price { rand(1.25..25.3) }
-    period nil
+    period 'daily'
 
     expensable_type nil
     expensable_id nil

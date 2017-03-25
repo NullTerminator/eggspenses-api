@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313134332) do
+ActiveRecord::Schema.define(version: 20170321211533) do
+
+  create_table "asset_events", force: :cascade do |t|
+    t.integer  "count"
+    t.date     "date"
+    t.integer  "asset_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_asset_events_on_asset_id"
+  end
 
   create_table "assets", force: :cascade do |t|
     t.string   "name"
-    t.integer  "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

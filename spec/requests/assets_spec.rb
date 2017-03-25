@@ -45,7 +45,7 @@ RSpec.describe 'Assets API', type: :request do
   end
 
   describe 'POST /assets' do
-    let(:valid_attributes) { { name: 'Cows', count: 4 } }
+    let(:valid_attributes) { { name: 'Cows' } }
 
     context 'when the request is valid' do
       before { post assets_path, params: valid_attributes }
@@ -60,7 +60,7 @@ RSpec.describe 'Assets API', type: :request do
     end
 
     context 'when the request is invalid' do
-      before { post assets_path, params: { count: 4} }
+      before { post assets_path, params: { } }
 
       it 'returns status code 422' do
         expect(response).to have_http_status(422)
@@ -73,7 +73,7 @@ RSpec.describe 'Assets API', type: :request do
   end
 
   describe 'PUT /assets/:id' do
-    let(:valid_attributes) { { name: 'Cow', count: 4 } }
+    let(:valid_attributes) { { name: 'Cow' } }
 
     context 'when record exists' do
       before { put asset_path(asset_id), params: valid_attributes }

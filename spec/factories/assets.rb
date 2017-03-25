@@ -5,6 +5,5 @@ FactoryGirl.define do
 
   factory :asset do
     name { FactoryGirl.generate :asset_name }
-    count { rand 8 }
   end
 end

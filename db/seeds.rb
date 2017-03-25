@@ -1,17 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 p 'POPULATING ASSETS'
 unless hens = Asset.find_by(name: 'Laying Hens')
-  hens = Asset.create!(name: 'Laying Hens', count: 46)
+  hens = Asset.create!(name: 'Laying Hens')
+  AssetEvent.create!(asset: hens, count: 46, date: 1.month.ago.to_date)
 end
 unless ducks = Asset.find_by(name: 'Ducks')
-  ducks = Asset.create!(name: 'Ducks', count: 9)
+  ducks = Asset.create!(name: 'Ducks')
+  AssetEvent.create!(asset: ducks, count: 9, date: 3.weeks.ago.to_date)
 end
 
 p 'POPULATING PRODUCTS'

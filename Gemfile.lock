@@ -100,6 +100,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pg (0.20.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -193,6 +194,7 @@ DEPENDENCIES
   guard-rspec
   hirb
   listen (~> 3.0.5)
+  pg
   puma (~> 3.0)
   rack-cors
   rails (~> 5.0.2)
